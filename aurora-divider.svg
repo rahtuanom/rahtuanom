@@ -56,14 +56,17 @@
 
   <rect width="800" height="80" fill="transparent" />
 
-  <!-- Aurora Waves -->
-  <path class="aurora-ribbon-2" d="M0,50 Q180,68 380,35 T800,45 L800,80 L0,80 Z" fill="url(#auroraGrad2)" opacity="0.45" />
-  <path class="aurora-ribbon-1" d="M0,45 Q200,10 400,45 T800,40 L800,80 L0,80 Z" fill="url(#auroraGrad1)" opacity="0.65" />
+  <!-- Flipped Vertically: Draping naturally from the top edge downwards -->
+  <g transform="translate(0, 80) scale(1, -1)">
+    <!-- Aurora Waves -->
+    <path class="aurora-ribbon-2" d="M0,50 Q180,68 380,35 T800,45 L800,80 L0,80 Z" fill="url(#auroraGrad2)" opacity="0.45" />
+    <path class="aurora-ribbon-1" d="M0,45 Q200,10 400,45 T800,40 L800,80 L0,80 Z" fill="url(#auroraGrad1)" opacity="0.65" />
 
-  <!-- Star Dust Specks along the Aurora -->
-  <circle cx="160" cy="35" r="1" fill="#ffffff" opacity="0.8" />
-  <circle cx="280" cy="22" r="1.2" fill="#00f0ff" opacity="0.9" />
-  <circle cx="430" cy="38" r="1.5" fill="#3fb950" opacity="0.85" />
-  <circle cx="590" cy="28" r="1.2" fill="#ffffff" opacity="0.75" />
-  <circle cx="710" cy="42" r="1" fill="#a371f7" opacity="0.8" />
+    <!-- Star Dust Specks along the Aurora -->
+    <circle cx="160" cy="35" r="1" fill="#ffffff" opacity="0.8" />
+    <circle cx="280" cy="22" r="1.2" fill="#00f0ff" opacity="0.9" />
+    <circle cx="430" cy="38" r="1.5" fill="#3fb950" opacity="0.85" />
+    <circle cx="590" cy="28" r="1.2" fill="#ffffff" opacity="0.75" />
+    <circle cx="710" cy="42" r="1" fill="#a371f7" opacity="0.8" />
+  </g>
 </svg>
