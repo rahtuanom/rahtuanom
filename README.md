@@ -23,14 +23,9 @@
 - 🔍 Berfokus pada pemantauan metrik kualitas layanan (*service quality standards*), analisis pengalaman pengguna, dan perancangan aplikasi digital yang bersih dan fungsional.
 - 🛠️ Suka membangun solusi berbasis web modern, sistem interaktif, dan utilitas praktis.
 
-> [!NOTE]  
-> **Disclaimer:** *Profil dan seluruh repositori di akun ini merupakan karya serta eksplorasi pribadi, dan bukan produk maupun representasi resmi dari PT Angkasa Pura Indonesia atau Bandara Internasional I Gusti Ngurah Rai.*
-
 <br/>
 
 ### 🚀 Featured Projects
-
-Tiga proyek pilihan utama yang mencerminkan eksplorasi web modern, proyek hackathon, dan program akselerasi RevoU:
 
 - 🌐 **[SelfWebsite](https://github.com/rahtuanom/SelfWebsite)** — *Personal Web Portfolio*  
   Website portofolio pribadi modern yang menggabungkan gaya *Neobrutalism* dan *Cyberpunk*, performa tinggi dengan kompresi gambar otomatis, serta mikro-interaksi dinamis.  
