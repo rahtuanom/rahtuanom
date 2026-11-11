@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Gradients & Glow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17" />
+      <stop offset="100%" stop-color="#05070c" />
+    </linearGradient>
+    <linearGradient id="paddleLeftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#0077ff" />
+    </linearGradient>
+    <linearGradient id="paddleRightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff0077" />
+      <stop offset="100%" stop-color="#ff7700" />
+    </linearGradient>
+    <pattern id="scanlines" width="100" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="rgba(255,255,255,0.03)" stroke-width="1.5" />
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes moveBall {
+      0%   { transform: translate(65px, 180px); }
+      12%  { transform: translate(320px, 60px); }
+      25%  { transform: translate(720px, 120px); }
+      37%  { transform: translate(450px, 310px); }
+      50%  { transform: translate(65px, 240px); }
+      62%  { transform: translate(380px, 320px); }
+      75%  { transform: translate(720px, 200px); }
+      88%  { transform: translate(400px, 60px); }
+      100% { transform: translate(65px, 180px); }
+    }
+
+    @keyframes movePaddleLeft {
+      0%   { transform: translateY(140px); }
+      25%  { transform: translateY(80px); }
+      50%  { transform: translateY(200px); }
+      75%  { transform: translateY(160px); }
+      100% { transform: translateY(140px); }
+    }
+
+    @keyframes movePaddleRight {
+      0%   { transform: translateY(160px); }
+      25%  { transform: translateY(80px); }
+      50%  { transform: translateY(110px); }
+      75%  { transform: translateY(160px); }
+      100% { transform: translateY(160px); }
+    }
+
+    @keyframes scorePulse {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; filter: drop-shadow(0 0 8px #00f0ff); }
+    }
+
+    @keyframes liveBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .ball {
+      animation: moveBall 8s infinite linear;
+      filter: url(#glow);
+    }
+    .paddle-left {
+      animation: movePaddleLeft 8s infinite ease-in-out;
+      filter: url(#glow);
+    }
+    .paddle-right {
+      animation: movePaddleRight 8s infinite ease-in-out;
+      filter: url(#glow);
+    }
+    .score {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      animation: scorePulse 3s infinite ease-in-out;
+    }
+    .live-dot {
+      animation: liveBlink 1.5s infinite;
+    }
+    .retro-text {
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 2px;
+    }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="380" rx="16" fill="url(#bgGrad)" stroke="#1a2639" stroke-width="2" />
+  <rect width="800" height="380" rx="16" fill="url(#scanlines)" />
+
+  <!-- Outer Playing Border -->
+  <rect x="25" y="55" width="750" height="295" rx="8" fill="none" stroke="#1f2d42" stroke-width="2" stroke-dasharray="6 4" />
+
+  <!-- Center Court Divider -->
+  <line x1="400" y1="55" x2="400" y2="350" stroke="#00f0ff" stroke-width="2" stroke-dasharray="8 8" opacity="0.3" />
+  <circle cx="400" cy="202.5" r="40" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" />
+
+  <!-- Header & Arcade Bar -->
+  <rect x="25" y="15" width="750" height="32" rx="6" fill="#0d1424" stroke="#1c2a40" stroke-width="1" />
+  
+  <!-- Live Status Dot -->
+  <circle class="live-dot" cx="45" cy="31" r="5" fill="#00ff66" />
+  <text x="58" y="35" fill="#8899ac" font-size="11" font-weight="bold" class="retro-text">RETRO PONG v1.0 // MULTIPLAYER SIMULATION</text>
+  
+  <text x="690" y="35" fill="#00f0ff" font-size="11" font-weight="bold" class="retro-text">60 FPS</text>
+
+  <!-- Score Board -->
+  <g class="score">
+    <text x="320" y="110" fill="#00f0ff" font-size="44" text-anchor="middle" opacity="0.9">08</text>
+    <text x="400" y="105" fill="#4a5f78" font-size="28" text-anchor="middle">:</text>
+    <text x="480" y="110" fill="#ff0077" font-size="44" text-anchor="middle" opacity="0.9">06</text>
+  </g>
+
+  <!-- Player Tags -->
+  <text x="120" y="85" fill="#00f0ff" font-size="12" font-weight="bold" class="retro-text" opacity="0.7">◀ VISITOR (P1)</text>
+  <text x="680" y="85" fill="#ff0077" font-size="12" font-weight="bold" class="retro-text" text-anchor="end" opacity="0.7">GUEST BOT (P2) ▶</text>
+
+  <!-- Left Paddle (Visitor) -->
+  <g class="paddle-left">
+    <rect x="45" y="0" width="12" height="75" rx="6" fill="url(#paddleLeftGrad)" />
+  </g>
+
+  <!-- Right Paddle (Bot) -->
+  <g class="paddle-right">
+    <rect x="743" y="0" width="12" height="75" rx="6" fill="url(#paddleRightGrad)" />
+  </g>
+
+  <!-- The Ball -->
+  <g class="ball">
+    <circle cx="0" cy="0" r="8" fill="#ffffff" stroke="#00f0ff" stroke-width="2" />
+  </g>
+
+  <!-- Footer Banner Info -->
+  <text x="400" y="332" fill="#506680" font-size="11" text-anchor="middle" class="retro-text">⚡ POWERED BY GITHUB PROFILE README &amp; MODERN SVG ANIMATION ⚡</text>
+</svg>
