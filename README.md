@@ -21,28 +21,30 @@
 - 📍 Berdomisili di **Bali, Indonesia**
 - 💼 **Airport Service Quality Control Intern** di **PT Angkasa Pura Indonesia — Bandara Internasional I Gusti Ngurah Rai, Bali (DPS)**.
 - 🔍 Berfokus pada pemantauan metrik kualitas layanan (*service quality standards*), analisis pengalaman pengguna, dan perancangan aplikasi digital yang bersih dan fungsional.
-- 🛠️ Suka membangun solusi berbasis web modern, aplikasi mobile native, dan utilitas praktis.
+- 🛠️ Suka membangun solusi berbasis web modern, sistem interaktif, dan utilitas praktis.
 
 > [!NOTE]  
 > **Disclaimer:** *Profil dan seluruh repositori di akun ini merupakan karya serta eksplorasi pribadi, dan bukan produk maupun representasi resmi dari PT Angkasa Pura Indonesia atau Bandara Internasional I Gusti Ngurah Rai.*
 
 <br/>
 
-### 🚀 Selected Projects
+### 🚀 Featured Projects
 
-Berikut 3 proyek unggulan terbaik yang mencerminkan eksplorasi saya di web modern, mobile, dan sistem utilitas:
+Tiga proyek pilihan utama yang mencerminkan eksplorasi web modern, proyek hackathon, dan program akselerasi RevoU:
 
-- 🌐 **[SelfWebsite](https://github.com/rahtuanom/SelfWebsite)**  
-  Web portofolio pribadi modern yang dirancang responsif dan estetik untuk menampilkan rekam jejak, keahlian data science, dan proyek-proyek rekayasa perangkat lunak.  
-  `Next.js` • `TypeScript` • `Tailwind CSS` • `React`
+- 🌐 **[SelfWebsite](https://github.com/rahtuanom/SelfWebsite)** — *Personal Web Portfolio*  
+  Website portofolio pribadi modern yang menggabungkan gaya *Neobrutalism* dan *Cyberpunk*, performa tinggi dengan kompresi gambar otomatis, serta mikro-interaksi dinamis.  
+  🔗 **Live Demo:** [rahtuanom.my.id](https://rahtuanom.my.id)  
+  `Next.js 15` • `TypeScript` • `Tailwind CSS` • `Framer Motion` • `React`
 
-- 📱 **[Project_Cashow](https://github.com/rahtuanom/Project_Cashow)**  
-  Aplikasi mobile Android native yang dibangun sebagai solusi pencatatan dan manajemen arus kas keuangan (*cashflow tracking*) secara praktis dan terstruktur.  
-  `Java` • `Android SDK` • `Gradle`
+- 🏆 **[HaloHati](https://github.com/rahtuanom/halohati-frontend)** — *Hackathon Project*  
+  Platform konsultasi dan kesehatan mental interaktif yang dikembangkan saat kompetisi Hackathon, dilengkapi antarmuka konsultasi chat yang responsif dan ramah pengguna.  
+  `Next.js 15` • `React 19` • `TypeScript` • `Tailwind CSS v4`
 
-- 🧮 **[ipkcalc](https://github.com/rahtuanom/ipkcalc)**  
-  Aplikasi kalkulator akademik interaktif berbasis web untuk mempermudah penghitungan dan proyeksi Indeks Prestasi Kumulatif (IPK) mahasiswa dengan dukungan antarmuka dan backend.  
-  `JavaScript` • `Node.js` • `HTML5` • `CSS3`
+- 🏖️ **[Blue Horizon Resort](https://github.com/rahtuanom/Front-end)** — *RevoU Project*  
+  Proyek fullstack web dari program RevoU berupa platform reservasi resort pantai di Bali, lengkap dengan manajemen pemesanan kamar dan arsitektur REST API.  
+  📂 Repositori: [Front-end](https://github.com/rahtuanom/Front-end) & [Back-end](https://github.com/rahtuanom/Back-end)  
+  `JavaScript` • `Node.js` • `Express.js` • `REST API` • `HTML5/CSS3`
 
 <br/>
 
@@ -58,11 +60,13 @@ Berikut 3 proyek unggulan terbaik yang mencerminkan eksplorasi saya di web moder
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-SelfWebsite-00f0ff?style=for-the-badge&logo=googlechrome&logoColor=black)](https://github.com/rahtuanom/SelfWebsite)
+[![Website](https://img.shields.io/badge/Website-rahtuanom.my.id-00f0ff?style=for-the-badge&logo=googlechrome&logoColor=black)](https://rahtuanom.my.id)
+&nbsp;
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-rahtuanomhariyadi-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://id.linkedin.com/in/rahtuanomhariyadi)
 &nbsp;
 [![GitHub](https://img.shields.io/badge/GitHub-rahtuanom-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rahtuanom)
 &nbsp;
-[![Email](https://img.shields.io/badge/Email-rahtuanom10%40gmail.com-ffb703?style=for-the-badge&logo=gmail&logoColor=black)](mailto:rahtuanom10@gmail.com)
+[![Email](https://img.shields.io/badge/Email-rahtuanom%40gmail.com-ffb703?style=for-the-badge&logo=gmail&logoColor=black)](mailto:rahtuanom@gmail.com)
 
 </div>
 
