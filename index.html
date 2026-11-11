@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Pong // Rahtu Anom Arcade</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+    body {
+      background: radial-gradient(circle at center, #0a0e17 0%, #030508 100%);
+      color: #00f0ff;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 26px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #8899ac;
+      margin-top: 4px;
+    }
+    #game-container {
+      position: relative;
+      border: 3px solid #1f2d42;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(0, 0, 0, 0.8);
+      background: #060910;
+    }
+    canvas {
+      display: block;
+      border-radius: 9px;
+    }
+    .controls-hint {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #627d98;
+      text-align: center;
+    }
+    .controls-hint span {
+      color: #00ff66;
+      font-weight: bold;
+    }
+    .btn-restart {
+      margin-top: 10px;
+      background: transparent;
+      border: 1px solid #00f0ff;
+      color: #00f0ff;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-family: inherit;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+    .btn-restart:hover {
+      background: #00f0ff;
+      color: #05070c;
+      box-shadow: 0 0 15px #00f0ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>RETRO PING PONG ARCADE</h1>
+    <p class="subtitle">Rahtu Anom GitHub Edition</p>
+  </div>
+
+  <div id="game-container">
+    <canvas id="pongCanvas" width="800" height="450"></canvas>
+  </div>
+
+  <p class="controls-hint">
+    Gunakan tombol <span>[ W / S ]</span> atau <span>[ Panah Atas / Bawah ]</span> atau <span>Gerakkan Mouse</span> untuk mengontrol raket Anda (kiri).
+  </p>
+  <button class="btn-restart" onclick="resetGame()">RESTART MATCH</button>
+
+  <script>
+    const canvas = document.getElementById("pongCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Audio synthesizer using Web Audio API (No external files needed)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playBeep(freq, type = 'square', duration = 0.08) {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    // Paddle specs
+    const paddleWidth = 14;
+    const paddleHeight = 85;
+    const paddleSpeed = 7;
+
+    // Player (Left)
+    const player = {
+      x: 20,
+      y: canvas.height / 2 - paddleHeight / 2,
+      width: paddleWidth,
+      height: paddleHeight,
+      score: 0,
+      vy: 0
+    };
+
+    // AI Bot (Right)
+    const bot = {
+      x: canvas.width - 20 - paddleWidth,
+      y: canvas.height / 2 - paddleHeight / 2,
+      width: paddleWidth,
+      height: paddleHeight,
+      score: 0,
+      speed: 4.8
+    };
+
+    // Ball
+    const ball = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      radius: 8,
+      speed: 7,
+      vx: 6,
+      vy: 4
+    };
+
+    // Particles on hit
+    let particles = [];
+    function createParticles(x, y, color) {
+      for (let i = 0; i < 12; i++) {
+        particles.push({
+          x: x,
+          y: y,
+          vx: (Math.random() - 0.5) * 6,
+          vy: (Math.random() - 0.5) * 6,
+          radius: Math.random() * 3 + 1,
+          color: color,
+          alpha: 1
+        });
+      }
+    }
+
+    // Key inputs
+    const keys = { ArrowUp: false, ArrowDown: false, KeyW: false, KeyS: false };
+    window.addEventListener("keydown", (e) => {
+      if (["ArrowUp", "ArrowDown", "KeyW", "KeyS"].includes(e.code)) {
+        keys[e.code] = true;
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+      }
+    });
+    window.addEventListener("keyup", (e) => {
+      if (keys.hasOwnProperty(e.code)) keys[e.code] = false;
+    });
+
+    // Mouse movement support
+    canvas.addEventListener("mousemove", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseY = e.clientY - rect.top;
+      player.y = Math.max(0, Math.min(canvas.height - player.height, mouseY - player.height / 2));
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+    });
+
+    function resetBall(direction = 1) {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.speed = 7;
+      ball.vx = direction * 6;
+      ball.vy = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 3);
+    }
+
+    function resetGame() {
+      player.score = 0;
+      bot.score = 0;
+      resetBall(1);
+    }
+
+    function update() {
+      // Move Player by keyboard
+      if (keys.ArrowUp || keys.KeyW) player.y -= paddleSpeed;
+      if (keys.ArrowDown || keys.KeyS) player.y += paddleSpeed;
+      player.y = Math.max(0, Math.min(canvas.height - player.height, player.y));
+
+      // Move AI Bot (Smart tracking with slight latency)
+      const botCenter = bot.y + bot.height / 2;
+      if (botCenter < ball.y - 20) bot.y += bot.speed;
+      else if (botCenter > ball.y + 20) bot.y -= bot.speed;
+      bot.y = Math.max(0, Math.min(canvas.height - bot.height, bot.y));
+
+      // Ball Movement
+      ball.x += ball.vx;
+      ball.y += ball.vy;
+
+      // Top & Bottom boundary bounce
+      if (ball.y - ball.radius <= 0) {
+        ball.y = ball.radius;
+        ball.vy = -ball.vy;
+        playBeep(320);
+        createParticles(ball.x, ball.y, '#00f0ff');
+      } else if (ball.y + ball.radius >= canvas.height) {
+        ball.y = canvas.height - ball.radius;
+        ball.vy = -ball.vy;
+        playBeep(320);
+        createParticles(ball.x, ball.y, '#00f0ff');
+      }
+
+      // Check collision with Player Paddle
+      if (
+        ball.x - ball.radius <= player.x + player.width &&
+        ball.x + ball.radius >= player.x &&
+        ball.y >= player.y &&
+        ball.y <= player.y + player.height
+      ) {
+        let collidePoint = (ball.y - (player.y + player.height / 2)) / (player.height / 2);
+        let angleRad = (Math.PI / 4) * collidePoint;
+        ball.speed = Math.min(ball.speed + 0.4, 14);
+        ball.vx = ball.speed * Math.cos(angleRad);
+        ball.vy = ball.speed * Math.sin(angleRad);
+        ball.x = player.x + player.width + ball.radius;
+        playBeep(480);
+        createParticles(ball.x, ball.y, '#00f0ff');
+      }
+
+      // Check collision with Bot Paddle
+      if (
+        ball.x + ball.radius >= bot.x &&
+        ball.x - ball.radius <= bot.x + bot.width &&
+        ball.y >= bot.y &&
+        ball.y <= bot.y + bot.height
+      ) {
+        let collidePoint = (ball.y - (bot.y + bot.height / 2)) / (bot.height / 2);
+        let angleRad = (Math.PI / 4) * collidePoint;
+        ball.speed = Math.min(ball.speed + 0.4, 14);
+        ball.vx = -ball.speed * Math.cos(angleRad);
+        ball.vy = ball.speed * Math.sin(angleRad);
+        ball.x = bot.x - ball.radius;
+        playBeep(440);
+        createParticles(ball.x, ball.y, '#ff0077');
+      }
+
+      // Score checks
+      if (ball.x < 0) {
+        bot.score++;
+        playBeep(180, 'sawtooth', 0.2);
+        resetBall(1);
+      } else if (ball.x > canvas.width) {
+        player.score++;
+        playBeep(700, 'triangle', 0.25);
+        resetBall(-1);
+      }
+
+      // Update particles
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.alpha -= 0.04;
+        if (p.alpha <= 0) particles.splice(i, 1);
+      }
+    }
+
+    function draw() {
+      // Clear canvas
+      ctx.fillStyle = "#060910";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Center Dotted Line
+      ctx.strokeStyle = "rgba(0, 240, 255, 0.2)";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([8, 8]);
+      ctx.beginPath();
+      ctx.moveTo(canvas.width / 2, 0);
+      ctx.lineTo(canvas.width / 2, canvas.height);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Center Circle
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Score Display
+      ctx.font = "bold 44px 'Courier New', monospace";
+      ctx.fillStyle = "#00f0ff";
+      ctx.textAlign = "center";
+      ctx.fillText(String(player.score).padStart(2, '0'), canvas.width / 2 - 90, 70);
+
+      ctx.fillStyle = "#ff0077";
+      ctx.fillText(String(bot.score).padStart(2, '0'), canvas.width / 2 + 90, 70);
+
+      ctx.font = "12px 'Courier New', monospace";
+      ctx.fillStyle = "#627d98";
+      ctx.fillText("YOU (P1)", canvas.width / 2 - 90, 95);
+      ctx.fillText("AI BOT (P2)", canvas.width / 2 + 90, 95);
+
+      // Draw Player Paddle
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = "#00f0ff";
+      ctx.fillStyle = "#00f0ff";
+      ctx.fillRect(player.x, player.y, player.width, player.height);
+
+      // Draw Bot Paddle
+      ctx.shadowColor = "#ff0077";
+      ctx.fillStyle = "#ff0077";
+      ctx.fillRect(bot.x, bot.y, bot.width, bot.height);
+
+      // Draw Ball
+      ctx.shadowBlur = 20;
+      ctx.shadowColor = "#ffffff";
+      ctx.fillStyle = "#ffffff";
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Draw Particles
+      particles.forEach((p) => {
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = p.color;
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+      });
+
+      ctx.shadowBlur = 0;
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>

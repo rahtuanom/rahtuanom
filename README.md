@@ -18,7 +18,7 @@
 
   <!-- Interactive Game Controls / Links -->
   <p>
-    <a href="https://pong-2.com/" target="_blank">
+    <a href="https://rahtuanom.github.io/rahtuanom/" target="_blank">
       <img src="https://img.shields.io/badge/▶_PLAY_FULL_PONG-00F0FF?style=for-the-badge&logo=gamepad&logoColor=black" alt="Play Pong" />
     </a>
     &nbsp;
