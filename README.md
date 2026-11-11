@@ -1,14 +1,6 @@
 <div align="center">
 
   <!-- Dynamic Typing Header -->
-  <a href="https://github.com/rahtuanom">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=00F0FF&center=true&vCenter=true&width=650&lines=Hi+there,+I'm+Rahtu+Anom!+%F0%9F%91%8B;Airport+Service+Quality+Control+Intern;Full+Stack+%26+Mobile+App+Developer;Welcome+to+my+GitHub+profile!+%E2%9C%A8" alt="Typing SVG" />
-  </a>
-
-  <p align="center">
-    <i>Passionate about data-driven quality control, user experience, and modern software development.</i>
-  </p>
-
   <!-- Single Subtle Aurora Accent -->
   <img src="aurora-divider.svg" alt="Aurora accent" width="100%" />
 
