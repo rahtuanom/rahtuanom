@@ -18,8 +18,8 @@
 
 ### 👨‍💻 About Me
 
-- 📍 Berdomisili di **Bali, Indonesia**
-- 💼 **Airport Service Quality Control Intern** di **PT Angkasa Pura Indonesia — Bandara Internasional I Gusti Ngurah Rai, Bali (DPS)**.
+- 📍 **Bali, Indonesia**
+<!-- 💼 **Airport Service Quality Control Intern** di **PT Angkasa Pura Indonesia — Bandara Internasional I Gusti Ngurah Rai, Bali (DPS)**. -->
 - 🔍 Berfokus pada pemantauan metrik kualitas layanan (*service quality standards*), analisis pengalaman pengguna, dan perancangan aplikasi digital yang bersih dan fungsional.
 - 🛠️ Suka membangun solusi berbasis web modern, sistem interaktif, dan utilitas praktis.
 
@@ -66,12 +66,12 @@ Tiga proyek pilihan utama yang mencerminkan eksplorasi web modern, proyek hackat
 &nbsp;
 [![GitHub](https://img.shields.io/badge/GitHub-rahtuanom-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rahtuanom)
 &nbsp;
-[![Email](https://img.shields.io/badge/Email-rahtuanom%40gmail.com-ffb703?style=for-the-badge&logo=gmail&logoColor=black)](mailto:rahtuanom@gmail.com)
+[![Email](https://img.shields.io/badge/Email-rahtuanom%40gmail.com-ffb703?style=for-the-badge&logo=gmail&logoColor=black)](mailto:rahtuanom10@gmail.com)
 
 </div>
 
 <br/>
 
 <div align="center">
-  <sub>✨ Terima kasih sudah berkunjung ke profil GitHub saya! Semoga hari Anda menyenangkan. ✨</sub>
+  <sub>✨ Thanks ✨</sub>
 </div>
