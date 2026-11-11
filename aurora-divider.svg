@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 80" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Multi-stage Aurora Borealis Gradient -->
+    <linearGradient id="auroraGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2ea44f" stop-opacity="0" />
+      <stop offset="25%" stop-color="#3fb950" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.9" />
+      <stop offset="75%" stop-color="#8957e5" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#2ea44f" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="auroraGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0" />
+      <stop offset="35%" stop-color="#2ea44f" stop-opacity="0.7" />
+      <stop offset="70%" stop-color="#a371f7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
+    </linearGradient>
+
+    <filter id="auroraBlur" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes waveFlow1 {
+      0%, 100% {
+        d: path("M0,45 Q200,10 400,45 T800,40 L800,80 L0,80 Z");
+      }
+      50% {
+        d: path("M0,35 Q220,65 400,30 T800,50 L800,80 L0,80 Z");
+      }
+    }
+
+    @keyframes waveFlow2 {
+      0%, 100% {
+        d: path("M0,50 Q180,68 380,35 T800,45 L800,80 L0,80 Z");
+      }
+      50% {
+        d: path("M0,40 Q200,15 420,55 T800,35 L800,80 L0,80 Z");
+      }
+    }
+
+    .aurora-ribbon-1 {
+      animation: waveFlow1 12s infinite ease-in-out;
+      filter: url(#auroraBlur);
+    }
+    .aurora-ribbon-2 {
+      animation: waveFlow2 10s infinite ease-in-out;
+      filter: url(#auroraBlur);
+    }
+  </style>
+
+  <rect width="800" height="80" fill="transparent" />
+
+  <!-- Aurora Waves -->
+  <path class="aurora-ribbon-2" d="M0,50 Q180,68 380,35 T800,45 L800,80 L0,80 Z" fill="url(#auroraGrad2)" opacity="0.45" />
+  <path class="aurora-ribbon-1" d="M0,45 Q200,10 400,45 T800,40 L800,80 L0,80 Z" fill="url(#auroraGrad1)" opacity="0.65" />
+
+  <!-- Star Dust Specks along the Aurora -->
+  <circle cx="160" cy="35" r="1" fill="#ffffff" opacity="0.8" />
+  <circle cx="280" cy="22" r="1.2" fill="#00f0ff" opacity="0.9" />
+  <circle cx="430" cy="38" r="1.5" fill="#3fb950" opacity="0.85" />
+  <circle cx="590" cy="28" r="1.2" fill="#ffffff" opacity="0.75" />
+  <circle cx="710" cy="42" r="1" fill="#a371f7" opacity="0.8" />
+</svg>
