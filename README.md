@@ -2,7 +2,7 @@
 
   <!-- Dynamic Typing Header -->
   <!-- Single Subtle Aurora Accent -->
-  <img src="aurora-divider.svg" alt="Aurora accent" width="100%" />
+  <img src="aurora.svg" alt="Aurora accent" width="100%" />
 
 </div>
 

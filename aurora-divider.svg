@@ -28,19 +28,19 @@
   <style>
     @keyframes waveFlow1 {
       0%, 100% {
-        d: path("M0,45 Q200,10 400,45 T800,40 L800,80 L0,80 Z");
+        d: path("M0,35 Q200,70 400,35 T800,40 L800,0 L0,0 Z");
       }
       50% {
-        d: path("M0,35 Q220,65 400,30 T800,50 L800,80 L0,80 Z");
+        d: path("M0,45 Q220,15 400,50 T800,30 L800,0 L0,0 Z");
       }
     }
 
     @keyframes waveFlow2 {
       0%, 100% {
-        d: path("M0,50 Q180,68 380,35 T800,45 L800,80 L0,80 Z");
+        d: path("M0,30 Q180,12 380,45 T800,35 L800,0 L0,0 Z");
       }
       50% {
-        d: path("M0,40 Q200,15 420,55 T800,35 L800,80 L0,80 Z");
+        d: path("M0,40 Q200,65 420,25 T800,45 L800,0 L0,0 Z");
       }
     }
 
@@ -56,17 +56,14 @@
 
   <rect width="800" height="80" fill="transparent" />
 
-  <!-- Flipped Vertically: Draping naturally from the top edge downwards -->
-  <g transform="translate(0, 80) scale(1, -1)">
-    <!-- Aurora Waves -->
-    <path class="aurora-ribbon-2" d="M0,50 Q180,68 380,35 T800,45 L800,80 L0,80 Z" fill="url(#auroraGrad2)" opacity="0.45" />
-    <path class="aurora-ribbon-1" d="M0,45 Q200,10 400,45 T800,40 L800,80 L0,80 Z" fill="url(#auroraGrad1)" opacity="0.65" />
+  <!-- Aurora Waves (Directly curving downwards from flat top edge y=0) -->
+  <path class="aurora-ribbon-2" d="M0,30 Q180,12 380,45 T800,35 L800,0 L0,0 Z" fill="url(#auroraGrad2)" opacity="0.45" />
+  <path class="aurora-ribbon-1" d="M0,35 Q200,70 400,35 T800,40 L800,0 L0,0 Z" fill="url(#auroraGrad1)" opacity="0.65" />
 
-    <!-- Star Dust Specks along the Aurora -->
-    <circle cx="160" cy="35" r="1" fill="#ffffff" opacity="0.8" />
-    <circle cx="280" cy="22" r="1.2" fill="#00f0ff" opacity="0.9" />
-    <circle cx="430" cy="38" r="1.5" fill="#3fb950" opacity="0.85" />
-    <circle cx="590" cy="28" r="1.2" fill="#ffffff" opacity="0.75" />
-    <circle cx="710" cy="42" r="1" fill="#a371f7" opacity="0.8" />
-  </g>
+  <!-- Star Dust Specks along the Aurora -->
+  <circle cx="160" cy="45" r="1" fill="#ffffff" opacity="0.8" />
+  <circle cx="280" cy="58" r="1.2" fill="#00f0ff" opacity="0.9" />
+  <circle cx="430" cy="42" r="1.5" fill="#3fb950" opacity="0.85" />
+  <circle cx="590" cy="52" r="1.2" fill="#ffffff" opacity="0.75" />
+  <circle cx="710" cy="38" r="1" fill="#a371f7" opacity="0.8" />
 </svg>
