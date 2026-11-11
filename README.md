@@ -5,6 +5,7 @@
   <img src="aurora.svg" alt="Aurora accent" width="100%" />
 
 </div>
+
 ### 👨‍💻 About Me
 
 - 📍 **Bali, Indonesia**
