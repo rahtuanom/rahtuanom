@@ -1,61 +1,50 @@
 <div align="center">
 
-  <!-- Hero Visual: Twilight Plane Takeoff -->
-  <img src="plane-takeoff.svg" alt="Animated plane taking off into twilight sky" width="100%" />
-
-  <br/><br/>
-
-  <!-- Typing Header -->
+  <!-- Dynamic Typing Header -->
   <a href="https://github.com/rahtuanom">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1200&color=00F0FF&center=true&vCenter=true&width=650&lines=Hi+there,+I'm+Rahtu+Anom!+%F0%9F%91%8B;Airport+Service+Quality+Control+Intern;Building+clean,+useful+web+%26+mobile+apps;Welcome+to+my+GitHub!+%E2%9C%A8" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1200&color=00F0FF&center=true&vCenter=true&width=650&lines=Hi+there,+I'm+Rahtu+Anom!+%F0%9F%91%8B;Airport+Service+Quality+Control+Intern;Full+Stack+%26+Mobile+App+Developer;Welcome+to+my+GitHub+profile!+%E2%9C%A8" alt="Typing SVG" />
   </a>
+
+  <p align="center">
+    <i>Passionate about data-driven quality control, user experience, and modern software development.</i>
+  </p>
+
+  <!-- Single Subtle Aurora Accent -->
+  <img src="aurora-divider.svg" alt="Aurora accent" width="100%" />
 
 </div>
 
 <br/>
 
-<!-- Aurora Divider -->
-<img src="aurora-divider.svg" alt="Aurora divider" width="100%" />
-
 ### 👨‍💻 About Me
 
 - 📍 Berdomisili di **Bali, Indonesia**
-- 💼 Saat ini aktif sebagai **Airport Service Quality Control Intern** di **PT Angkasa Pura Indonesia — Bandara Internasional I Gusti Ngurah Rai, Bali (DPS)**.
-- 🔍 Tertarik pada analisis kualitas layanan (*service quality*), pemantauan metrik pengalaman pengguna, serta pengembangan aplikasi web dan mobile.
-- 🚀 Selalu antusias mengeksplorasi teknologi baru dan membangun proyek-proyek praktis.
+- 💼 **Airport Service Quality Control Intern** di **PT Angkasa Pura Indonesia — Bandara Internasional I Gusti Ngurah Rai, Bali (DPS)**.
+- 🔍 Berfokus pada pemantauan metrik kualitas layanan (*service quality standards*), analisis pengalaman pengguna, dan perancangan aplikasi digital yang bersih dan fungsional.
+- 🛠️ Suka membangun solusi berbasis web modern, aplikasi mobile native, dan utilitas praktis.
 
 > [!NOTE]  
 > **Disclaimer:** *Profil dan seluruh repositori di akun ini merupakan karya serta eksplorasi pribadi, dan bukan produk maupun representasi resmi dari PT Angkasa Pura Indonesia atau Bandara Internasional I Gusti Ngurah Rai.*
 
 <br/>
 
-<!-- Aurora Divider -->
-<img src="aurora-divider.svg" alt="Aurora divider" width="100%" />
+### 🚀 Selected Projects
 
-### 🚀 Featured Projects
+Berikut 3 proyek unggulan terbaik yang mencerminkan eksplorasi saya di web modern, mobile, dan sistem utilitas:
 
-Beberapa proyek pilihan yang telah diverifikasi di repositori saya:
-
-- **[SelfWebsite](https://github.com/rahtuanom/SelfWebsite)**  
-  Web portofolio pribadi modern yang dibangun untuk menampilkan karya, profil data science, dan eksplorasi web development.  
+- 🌐 **[SelfWebsite](https://github.com/rahtuanom/SelfWebsite)**  
+  Web portofolio pribadi modern yang dirancang responsif dan estetik untuk menampilkan rekam jejak, keahlian data science, dan proyek-proyek rekayasa perangkat lunak.  
   `Next.js` • `TypeScript` • `Tailwind CSS` • `React`
 
-- **[ipkcalc](https://github.com/rahtuanom/ipkcalc)**  
-  Aplikasi web kalkulator IPK interaktif untuk mempermudah perhitungan indeks prestasi akademik secara otomatis.  
-  `JavaScript` • `Node.js` • `HTML5` • `CSS3`
-
-- **[Project_Cashow](https://github.com/rahtuanom/Project_Cashow)**  
-  Aplikasi mobile Android native yang dikembangkan sebagai proyek akhir mata kuliah Pemrograman Mobile.  
+- 📱 **[Project_Cashow](https://github.com/rahtuanom/Project_Cashow)**  
+  Aplikasi mobile Android native yang dibangun sebagai solusi pencatatan dan manajemen arus kas keuangan (*cashflow tracking*) secara praktis dan terstruktur.  
   `Java` • `Android SDK` • `Gradle`
 
-- **[halohati-frontend](https://github.com/rahtuanom/halohati-frontend)**  
-  Antarmuka web modern untuk platform kesehatan dan konsultasi.  
-  `Next.js` • `TypeScript` • `React`
+- 🧮 **[ipkcalc](https://github.com/rahtuanom/ipkcalc)**  
+  Aplikasi kalkulator akademik interaktif berbasis web untuk mempermudah penghitungan dan proyeksi Indeks Prestasi Kumulatif (IPK) mahasiswa dengan dukungan antarmuka dan backend.  
+  `JavaScript` • `Node.js` • `HTML5` • `CSS3`
 
 <br/>
-
-<!-- Aurora Divider -->
-<img src="aurora-divider.svg" alt="Aurora divider" width="100%" />
 
 ### 🛠️ Tech Stack & Tools
 
@@ -64,9 +53,6 @@ Beberapa proyek pilihan yang telah diverifikasi di repositori saya:
 </p>
 
 <br/>
-
-<!-- Aurora Divider -->
-<img src="aurora-divider.svg" alt="Aurora divider" width="100%" />
 
 ### 📬 Connect With Me
 
